@@ -1,0 +1,15 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Jetbrains Mono';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/assets/fonts/JetbrainsMono-Medium.woff2');
+}
+
+// Курсивный (Italic)
+@font-face {
+    font-family: 'Jetbrains Mono';
+    font-style: italic;  // ⬅️ это важно!
+    font-weight: 400;
+    src: url("/assets/fonts/JetBrainsMono-Italic.woff2") format('woff2');
+}

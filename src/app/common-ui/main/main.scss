@@ -1,0 +1,57 @@
+.logo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+
+.logo img{
+    height: 85px;
+    width: auto;
+    object-fit: contain;
+}
+
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: normal;
+    line-height: 1; 
+    font-weight: 700;
+    bottom: 0px 0px;
+    font-family: 'Jetbrains Mono', monospace;
+    height: 100%;
+    gap: 0.25rem;
+}
+
+.blue-small{
+    color:var(--main-blue);
+    font-style: italic;
+    font-size: 200%;
+    font-weight: 100;
+    margin: 0; 
+    line-height: 1;
+}
+.blue-big{
+    color:var(--main-blue);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 97%;
+    margin: 0;
+    line-height: 1;
+}
+
+.row{
+    font-size: 300%;
+    display: flex;
+    gap: 0px;
+    align-items: baseline;
+    margin: 0;
+    line-height: 1;
+}
+
+p {
+    margin: 0;
+    line-height: 1;
+}

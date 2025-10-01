@@ -1,0 +1,13 @@
+@import "fonts.scss";
+
+:root {
+    --main-blue: rgba(0, 71, 255, 1);
+    --main-black: rgba(0, 0, 0, 1);
+    --main-white-black: rgba(66, 66, 66, 1);
+    --bg: white;
+}
+
+
+body {
+    background-color: (--bg)
+}
