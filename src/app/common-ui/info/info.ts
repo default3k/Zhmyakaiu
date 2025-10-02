@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Profile } from '../../data/services/profile';
+import { IProfile } from '../../data/interfaces/profile.interface';
 
 @Component({
   selector: 'app-info',
@@ -8,5 +8,5 @@ import { Profile } from '../../data/services/profile';
   styleUrl: './info.scss'
 })
 export class Info {
-  @Input() profile!: Profile;
+  @Input() profile!: IProfile;
 }

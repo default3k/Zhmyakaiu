@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Main } from "./common-ui/main/main";
 import { Info } from "./common-ui/info/info";
 import { Profile } from './data/services/profile';
+import { IProfile } from './data/interfaces/profile.interface';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import { Profile } from './data/services/profile';
 export class App {
   protected readonly title = signal('popa');
   profile = inject(Profile)
-  profiles: Profile[] = [];
+  profiles: IProfile[] = [];
 
   constructor() {
     this.profile.getTestAccounts().subscribe(val => {

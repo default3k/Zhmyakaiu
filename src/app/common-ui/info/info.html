@@ -1,29 +1,30 @@
 @if (profile) {
-<div class="table-info">
-    <div class="img-name">
-        <img src="/assets/image/stalin.png" alt="avatar" class="profile-avatar">
-        <div class="info-name">
-            <strong>Сталин Иосив</strong>
-            <span>stalin</span>
+    <div class="table-info">
+        <div class="img-name">
+
+            <img [src]="profile.avatarUrl || '/assets/image/stalin.png'" 
+                 alt="avatar" 
+                 class="profile-avatar">
+            <div class="info-name">
+                <strong>{{profile.firstName}} {{profile.lastName}}</strong>
+                <span>{{profile.username}}</span>
+            </div>
+        </div>
+
+        <div class="info-info">
+            {{profile.city}}
+        </div>
+
+        <div class="info-tags">
+            @for (skill of profile.stack; track skill) {
+                <div class="skill-tag">{{skill}}</div>
+            }
+        </div>
+
+        <div class="info-btns">
+            <button class="btn">Подписаться ({{profile.subscribersAmount}})</button>
         </div>
     </div>
-
-    <div class="info-info">
-        Списки навыкокв и прочей лабудни
-    </div>
-
-    <div class="info-tags">
-        <div class="skill-tag">Angular</div>
-        <div class="skill-tag">Mir Tankov</div>
-        <div class="skill-tag">Dota</div>
-        <div class="skill-tag">C++</div>
-        <div class="skill-tag">C#</div>
-        <div class="skill-tag">C</div>
-    </div>
-
-    <div class="info-btns">
-        <button class="btn">Подписаться</button>
-    </div>
-</div>} @else {
-    He pobit
+} @else {
+    Не получен
 }
