@@ -1,1 +1,8 @@
 <app-main></app-main>
+<div class="profile-card-wrapper">
+@for (profile of profiles; track profile.id) {
+    <app-info>
+        [profile]="profile"
+    </app-info>
+}
+</div>
