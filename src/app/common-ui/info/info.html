@@ -2,7 +2,7 @@
     <div class="table-info">
         <div class="img-name">
 
-            <img [src]="profile.avatarUrl || '/assets/image/stalin.png'" 
+            <img [src]="profile.avatarUrl | imgUrl"
                  alt="avatar" 
                  class="profile-avatar">
             <div class="info-name">
