@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { IProfile } from '../../data/interfaces/profile.interface';
-import { Profile } from '../../data/services/profile';
+import { ProfileService } from '../../data/services/profile';
 import { Main } from "../../common-ui/main/main";
 import { Info } from "../../common-ui/info/info";
 
@@ -12,7 +12,7 @@ import { Info } from "../../common-ui/info/info";
 })
 export class SaerchPage {
   protected readonly title = signal('popa');
-  profile = inject(Profile)
+  profile = inject(ProfileService)
   profiles: IProfile[] = [];
 
   constructor() {
