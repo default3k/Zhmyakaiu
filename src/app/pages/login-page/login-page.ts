@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../auth/auth';
 import { delay, from, map, skip, take, tap } from 'rxjs';
@@ -18,6 +18,10 @@ export class LoginPage {
     username: new FormControl<string|null>(null, Validators.required),
     password: new FormControl<string|null>(null, Validators.required),
   })
+
+  isPasswordVisible = signal<boolean>(false)
+
+
  // изучение штук rxjs
   // constructor(){
   //   from([1,2,3,4,5,6,7,8,9,10])

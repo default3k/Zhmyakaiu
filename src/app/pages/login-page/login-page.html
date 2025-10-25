@@ -26,10 +26,23 @@
 
                 <div class="form-group">
                     <label for="password">Пароль</label>
-                    <input 
-                    formControlName="password"
-                    type="password" id="password" name="password" required
-                    >
+                    <div class="password-wrapper">
+                        <input 
+                        formControlName="password"
+                        [type]= "isPasswordVisible() ? 'text' : 'password'"
+                        id="password" 
+                        name="password" 
+                        class="password-input"
+                        >
+                        <button 
+                        type="button" 
+                        class="toggle-password"
+                        (click)="isPasswordVisible.set(!isPasswordVisible())"
+                        [class.active]="isPasswordVisible()"
+                        >
+                            <img src="assets/image/ico.png" alt="Показать пароль">
+                        </button>
+                    </div>
                 </div>
             
                 <button type="submit" class="btn">Войти</button>

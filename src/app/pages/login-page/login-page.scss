@@ -35,6 +35,7 @@ h1 {
 
 .form-group {
   margin-bottom: 1rem;
+  padding-right: 25px;
 }
 
 label {
@@ -58,6 +59,37 @@ input:focus {
   outline: none;
   border-color: #2563EB;
 }
+
+/* Стили для поля пароля с кнопкой */
+.password-wrapper {
+  position: relative;
+}
+
+.password-input {
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #E2E8F0;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.toggle-password.active{
+  background-color: #2563EB;
+}
+
+.toggle-password img {
+  width: 20px;
+  height: 20px;
+}
+
 
 .btn {
   width: 100%;
