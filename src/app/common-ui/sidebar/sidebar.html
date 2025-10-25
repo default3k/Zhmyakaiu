@@ -1,1 +1,36 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+    <!-- Логотип -->
+    <div class="sidebar-header">
+        <app-main></app-main>
+    </div>
+    
+    <!-- Основная навигация -->
+    <div class="sidebar-nav">
+        <button 
+            *ngFor="let item of menuItems"
+            class="nav-btn"
+            [routerLink]="item.link"
+            routerLinkActive="active"
+        >
+            {{ item.label }}
+        </button>
+    </div>
+
+    <!-- Раздел подписчиков -->
+    <div class="sidebar-followers">
+        <div class="section-title">Подписчики</div>
+
+        <!-- Список подписчиков -->
+        <app-subscriber-card 
+            *ngFor="let subscriber of subscribers$ | async"
+            [profile]="subscriber">
+        </app-subscriber-card>
+
+        <!-- Ссылка на всех подписчиков -->
+        <div class="all-followers">
+            <a class="view-all-link" [routerLink]="['/subscribes']">
+                Все подписчики ->
+            </a>
+        </div>
+    </div>
+</div>

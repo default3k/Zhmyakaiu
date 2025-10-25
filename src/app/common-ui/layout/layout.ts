@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Sidebar } from "../sidebar/sidebar";
+import { SidebarComponent } from "../sidebar/sidebar";
 import { ProfileService } from "../../data/services/profile";
 import { IProfile } from '../../data/interfaces/profile.interface';
 
 @Component({
   selector: 'app-layout',
-  imports: [RouterOutlet, Sidebar],
+  imports: [RouterOutlet, SidebarComponent],
   templateUrl: './layout.html',
   styleUrl: './layout.scss'
 })

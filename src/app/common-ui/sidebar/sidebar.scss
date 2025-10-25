@@ -1,0 +1,76 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1E40AF;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка с логотипом */
+.sidebar-header {
+    margin-bottom: 30px;
+}
+
+/* Основная навигация */
+.sidebar-nav {
+    margin-bottom: 30px;
+}
+
+.nav-btn {
+    width: 100%;
+    padding: 12px 15px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+}
+
+/* Раздел подписчиков */
+.sidebar-followers {
+    margin-top: 0;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.all-followers {
+    margin-top: 15px;
+}
+
+.view-all-link {
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+}
+
+.view-all-link:hover {
+    color: #93C5FD;
+}
