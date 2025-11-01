@@ -1,0 +1,93 @@
+.profile-page__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 150px;
+    text-decoration: none;
+    background-color: #1639af;
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+
+.btn:hover {
+    background: #2f54cf;
+}
+
+.ico {
+    width: 12px;
+    height: 12px;
+}
+
+.profile-page__body {
+    margin-top: 30px;
+}
+
+/* Секция подписчиков */
+.followers-section {
+    display: block;
+}
+
+.followers-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.followers-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.followers-count {
+    background: #1639af;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 50px;
+    text-align: center;
+}
+
+.followers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Собственные стили для подписчиков на странице профиля */
+.profile-subscriber-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    cursor: pointer;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+.profile-subscriber-item:hover {
+    background: #e9ecef;
+}
+
+.profile-subscriber-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #dee2e6;
+}
+
+.profile-subscriber-name {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+}

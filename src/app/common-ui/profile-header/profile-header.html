@@ -1,1 +1,12 @@
-<p>profile-header works!</p>
+@if (profile(); as profile) {
+    @if (profile.avatarUrl) {
+        <img [src]="profile.avatarUrl | imgUrl" alt="">
+    } @else {
+        <img src="/assets/image/ava_default.png" alt="">
+    }
+
+    <div class="username-and-name">
+        <h1 class = "h4"> {{ profile.firstName }} {{  profile.lastName }}</h1>
+        <span class = "regular"> {{ profile.username }} </span>
+    </div>
+}

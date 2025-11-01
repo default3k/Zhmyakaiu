@@ -39,4 +39,7 @@ getSubscribersShortList(){
         tap(res => this.me.set(res))
       )
   }
+  getAccount(id: string) {
+    return this.http.get<IProfile>(`${this.baseApiUrl}account/me${id}`)
+  }
 }

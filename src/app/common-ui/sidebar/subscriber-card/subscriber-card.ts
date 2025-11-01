@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ImgUrlPipe } from "../../../helpers/pipes/img-url-pipe";
 import { IProfile } from '../../../data/interfaces/profile.interface';
 
@@ -6,7 +6,8 @@ import { IProfile } from '../../../data/interfaces/profile.interface';
   selector: 'app-subscriber-card',
   imports: [ImgUrlPipe],
   templateUrl: './subscriber-card.html',
-  styleUrl: './subscriber-card.scss'
+  styleUrl: './subscriber-card.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class SubscriberCard {
   @Input() profile!: IProfile

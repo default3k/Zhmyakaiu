@@ -1,1 +1,33 @@
-<p>profile-page works!</p>
+@if (profile$ | async; as profile) {
+<header class="profile-page__header">
+    <app-profile-header [profile]="profile"></app-profile-header>
+</header>
+
+<main class="profile-page__body">
+    <div class="followers-section">
+        <div class="followers-header">
+            <h3>Подписчики</h3>
+            <div class="followers-count">
+                {{ (subscribers$ | async)?.length }}
+            </div>
+        </div>
+        
+        <div class="followers-list">
+            @for (subscriber of subscribers$ | async; track subscriber.id) {
+                <div class="profile-subscriber-item">
+                    <img
+                        class="profile-subscriber-avatar"
+                        [src]="subscriber.avatarUrl | imgUrl"
+                        [alt]="subscriber.firstName + ' ' + subscriber.lastName"
+                    >
+                    <span class="profile-subscriber-name">
+                        {{ subscriber.firstName }} {{ subscriber.lastName }}
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</main>
+} @else {
+    <p>Загрузка профиля...</p>
+}
