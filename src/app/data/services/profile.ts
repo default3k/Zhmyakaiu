@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { IProfile } from '../interfaces/profile.interface';
 import { Pageble } from '../interfaces/pageble.interface';
 import { map, tap } from 'rxjs';
@@ -13,6 +13,8 @@ export class ProfileService {
   avatarUrl: any;
   lastName: any;
   firstName: any;
+
+   me = signal<IProfile | null>(null)
 
 getSubscribersShortList(){
   return this.http.get<Pageble<IProfile>>(`${this.baseApiUrl}account/subscribers`, {
@@ -32,6 +34,9 @@ getSubscribersShortList(){
   }
 
   getMe() {
-    return this.http.get<IProfile>(`${this.baseApiUrl}account/me`);
+    return this.http.get<IProfile>(`${this.baseApiUrl}account/me`)
+      .pipe(
+        tap(res => this.me.set(res))
+      )
   }
 }

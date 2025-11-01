@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SubscriberCard } from "./subscriber-card/subscriber-card";
 import { ProfileService } from '../../data/services/profile';
-import { map } from 'rxjs';
+import { firstValueFrom, map } from 'rxjs';
+import { ImgUrlPipe } from "../../helpers/pipes/img-url-pipe";
 
 @Component({
   selector: 'app-sidebar',
-  imports: [Main, CommonModule, RouterModule, SubscriberCard],
+  imports: [Main, CommonModule, RouterModule, SubscriberCard, ImgUrlPipe],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss'
 })
@@ -18,7 +19,7 @@ export class SidebarComponent {
   subscribers$ = this.profileService.getTestAccounts().pipe(
   map(accounts => accounts.slice(0, 3))
 );
-  
+  me = this.profileService.me;
   
   menuItems = [
     {
@@ -37,4 +38,8 @@ export class SidebarComponent {
       link: 'search'
     }
   ];
+
+  ngOnInit() {
+    firstValueFrom(this.profileService.getMe())
+  }
 }

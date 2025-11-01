@@ -1,23 +1,22 @@
 .sidebar {
-    width: 250px;
+    width: 307.5px;
     height: 100vh;
     background: #1E40AF;
     color: white;
-    padding: 20px;
+    padding: 24px;
     box-sizing: border-box;
     position: fixed;
     left: 0;
     top: 0;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Шапка с логотипом */
 .sidebar-header {
     margin-bottom: 30px;
 }
 
-/* Основная навигация */
 .sidebar-nav {
     margin-bottom: 30px;
 }
@@ -73,4 +72,37 @@
 
 .view-all-link:hover {
     color: #93C5FD;
+}
+
+.sidebar_footer{
+    background-color: #1639af;
+    border-radius: 2px;
+    padding: 4px 16px;
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 32px 1fr 16px;
+    grid-gap: 12px;
+    align-items: center;
+    .username-text {
+        font-weight: 700;
+        color: white;
+    }
+}
+
+.img_footer_one  {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+}
+
+.img_footer_two  {
+        width: 16px;
+        height: 16px;
+}
+
+.settings-btn {
+    svg {
+        width: 18px;
+        height: 18px;
+    }
 }

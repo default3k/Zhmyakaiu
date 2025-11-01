@@ -33,4 +33,21 @@
             </a>
         </div>
     </div>
+    <footer class="sidebar_footer">
+        @if (me(); as me) {
+            @if (me.avatarUrl) {
+                <img class="img_footer_one" [src]="me.avatarUrl | imgUrl" alt="">
+            } @else {
+                <img class="img_footer_one" src="/assets/image/ava_default.png" alt="">
+            }
+            
+            <div class="medium-text username-text">
+                {{ me.username }}
+            </div>
+
+            <a [routerLink]="['settings']" class="settings-btn">
+                <img class = "img_footer_two" src ="/assets/svg/settings.svg" alt="">
+            </a>
+        }
+    </footer>
 </div>
