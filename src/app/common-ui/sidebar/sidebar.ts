@@ -17,15 +17,15 @@ export class SidebarComponent {
   profileService = inject(ProfileService)
 
   subscribers$ = this.profileService.getTestAccounts().pipe(
-  map(accounts => accounts.slice(0, 3))
-);
+    map(accounts => accounts.slice(0, 3)) // Берем 3 подписчика для сайдбара
+  );
   me = this.profileService.me;
   
   menuItems = [
     {
       label: 'Моя страница',
       icon: 'home',
-      link: ''
+      link: ['/profile', 'me']
     },
     {
       label: 'Чаты',

@@ -1,93 +1,198 @@
-.profile-page__header {
+/* Основной контейнер страницы профиля */
+.profile-page__container {
+    display: flex;
+    gap: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+/* Левая колонка (60% ширины) */
+.profile-page__left {
+    flex: 0 0 60%;
+    min-height: 400px;
+}
+
+/* Правая колонка (40% ширины) */
+.profile-page__right {
+    flex: 0 0 40%;
+}
+
+/* Пустой блок в левой колонке */
+.empty-block {
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    padding: 40px 20px;
+    text-align: center;
+    color: #6c757d;
+    min-height: 710px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    
+    p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-family: 'Jetbrains Mono', monospace;
+    }
 }
 
-.btn {
-    width: 150px;
-    text-decoration: none;
-    background-color: #1639af;
-    color: white;
-    text-align: center;
-    align-items: center;
+/* Заголовок профиля */
+.profile-page__header {
+    margin-bottom: 24px;
 }
 
-.btn:hover {
-    background: #2f54cf;
-}
-
-.ico {
-    width: 12px;
-    height: 12px;
-}
-
+/* Основное тело правой колонки */
 .profile-page__body {
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Общие стили для заголовков секций */
+.section-title {
+    margin: 0 0 16px 0;
+    font-size: 1.4rem;
+    color: #000;
+    font-weight: 700;
+    font-family: 'Jetbrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Секция "О себе" */
+.about-section {
+    background: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.about-content {
+    line-height: 1.6;
+    color: #333;
+    font-size: 0.95rem;
+    font-family: 'Jetbrains Mono', monospace;
+}
+
+/* Секция навыков */
+.skills-section {
+    background: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Тег навыка */
+.skill-tag {
+    background: #1639af;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Jetbrains Mono', monospace;
+    border: 1px solid #1639af;
 }
 
 /* Секция подписчиков */
 .followers-section {
-    display: block;
+    background: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
 }
 
+/* Заголовок секции подписчиков */
 .followers-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
-.followers-header h3 {
+/* Контейнер для заголовка и количества */
+.followers-title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.followers-title {
     margin: 0;
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 1.4rem;
+    color: #000;
+    font-weight: 700;
+    font-family: 'Jetbrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.followers-count {
-    background: #1639af;
+/* Большая синяя кнопка добавления подписчика */
+.add-subscriber-btn {
+    background: #1E40AF;
     color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    min-width: 50px;
-    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: 'Jetbrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    
+    &:hover {
+        background: #1639af;
+    }
+    
+    &:active {
+        background: #1e3a8a;
+        transform: scale(0.98);
+    }
 }
 
+/* Список подписчиков */
 .followers-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-/* Собственные стили для подписчиков на странице профиля */
+/* Элемент подписчика */
 .profile-subscriber-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 6px;
     transition: background 0.2s;
     cursor: pointer;
     background: #f8f9fa;
     border: 1px solid #e9ecef;
+    font-family: 'Jetbrains Mono', monospace;
 }
 
 .profile-subscriber-item:hover {
     background: #e9ecef;
 }
 
+/* Аватар подписчика */
 .profile-subscriber-avatar {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #dee2e6;
+    border: 1px solid #dee2e6;
 }
 
+/* Имя подписчика */
 .profile-subscriber-name {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #333;
-    font-weight: 500;
+    font-weight: 600;
 }

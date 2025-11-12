@@ -1,12 +1,40 @@
 @if (profile(); as profile) {
-    @if (profile.avatarUrl) {
-        <img [src]="profile.avatarUrl | imgUrl" alt="">
-    } @else {
-        <img src="/assets/image/ava_default.png" alt="">
-    }
-
-    <div class="username-and-name">
-        <h1 class = "h4"> {{ profile.firstName }} {{  profile.lastName }}</h1>
-        <span class = "regular"> {{ profile.username }} </span>
+<div class="profile-header">
+    <div class="avatar-section">
+        @if (profile.avatarUrl) {
+            <img [src]="profile.avatarUrl | imgUrl" alt="" class="profile-avatar">
+        } @else {
+            <img src="/assets/image/ava_default.png" alt="" class="profile-avatar">
+        }
     </div>
+
+    <div class="profile-main-info">
+        <div class="name-and-actions">
+            <div class="name-and-username">
+                <h1 class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</h1>
+                <span class="profile-username">@{{ profile.username }}</span>
+            </div>
+            <button class="edit-btn">
+                РЕДАКТИРОВАТЬ
+            </button>
+        </div>
+        
+        <div class="profile-stats">
+            <div class="stat-item">
+                <span class="stat-label">Город</span>
+                <span class="stat-value">{{ profile.city || 'Не указан' }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Статус</span>
+                <span class="stat-value" [class.online]="profile.isActive" [class.offline]="!profile.isActive">
+                    {{ profile.isActive ? 'В сети' : 'Не в сети' }}
+                </span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Подписчики</span>
+                <span class="stat-value">{{ profile.subscribersAmount - 1 }}</span>
+            </div>
+        </div>
+    </div>
+</div>
 }

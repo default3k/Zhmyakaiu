@@ -1,33 +1,69 @@
 @if (profile$ | async; as profile) {
-<header class="profile-page__header">
-    <app-profile-header [profile]="profile"></app-profile-header>
-</header>
-
-<main class="profile-page__body">
-    <div class="followers-section">
-        <div class="followers-header">
-            <h3>Подписчики</h3>
-            <div class="followers-count">
-                {{ (subscribers$ | async)?.length }}
-            </div>
-        </div>
-        
-        <div class="followers-list">
-            @for (subscriber of subscribers$ | async; track subscriber.id) {
-                <div class="profile-subscriber-item">
-                    <img
-                        class="profile-subscriber-avatar"
-                        [src]="subscriber.avatarUrl | imgUrl"
-                        [alt]="subscriber.firstName + ' ' + subscriber.lastName"
-                    >
-                    <span class="profile-subscriber-name">
-                        {{ subscriber.firstName }} {{ subscriber.lastName }}
-                    </span>
-                </div>
-            }
+<div class="profile-page__container">
+    <!-- Левая часть (60% ширины) -->
+    <div class="profile-page__left">
+        <!-- Пустой блок на время -->
+        <div class="empty-block">
+            <p>Этот блок временно пустой</p>
         </div>
     </div>
-</main>
+
+    <!-- Правая часть (40% ширины) -->
+    <div class="profile-page__right">
+        <header class="profile-page__header">
+            <app-profile-header [profile]="profile"></app-profile-header>
+        </header>
+
+        <main class="profile-page__body">
+            <!-- Секция "О себе" -->
+            <div class="about-section">
+                <h3 class="section-title">О себе</h3>
+                <div class="about-content">
+                    {{ getAboutText(profile) }}
+                </div>
+            </div>
+
+            <!-- Секция навыков -->
+            @if (profile.stack && profile.stack.length > 0) {
+            <div class="skills-section">
+                <h3 class="section-title">Навыки</h3>
+                <div class="skills-list">
+                    @for (skill of profile.stack; track skill) {
+                        <div class="skill-tag">{{skill}}</div>
+                    }
+                </div>
+            </div>
+            }
+
+            <!-- Секция подписчиков -->
+            <div class="followers-section">
+                <div class="followers-header">
+                    <div class="followers-title-container">
+                        <h3 class="followers-title">Подписчики</h3>
+                    </div>
+                    <button class="add-subscriber-btn" (click)="addSubscriber()">
+                        Добавить
+                    </button>
+                </div>
+                
+                <div class="followers-list">
+                    @for (subscriber of displayedSubscribers$ | async; track subscriber.id) {
+                        <div class="profile-subscriber-item">
+                            <img
+                                class="profile-subscriber-avatar"
+                                [src]="subscriber.avatarUrl | imgUrl"
+                                [alt]="subscriber.firstName + ' ' + subscriber.lastName"
+                            >
+                            <span class="profile-subscriber-name">
+                                {{ subscriber.firstName }} {{ subscriber.lastName }}
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
 } @else {
     <p>Загрузка профиля...</p>
 }
